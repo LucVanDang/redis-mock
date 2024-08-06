@@ -1,9 +1,9 @@
 package com.example.redisom.service;
 
 import com.example.redisom.entity.User;
-import com.example.redisom.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -11,22 +11,23 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class UserService {
 
-    private final UserRepository userRepository;
+    private final RedisService redisService;
 
 
-    public User save(User user) {
-        return userRepository.save(user);
+    public User save(User user) throws Exception {
+        redisService.saveObjectAsJson("prefix", "key", user);
+        return null;
     }
 
     public Optional<User> findById(String id) {
-        return userRepository.findById(id);
+        return Optional.empty();
     }
 
     public void deleteById(String id) {
-        userRepository.deleteById(id);
+
     }
 
-    public List<User> findAll() {
-        return userRepository.findAll();
+    public List<User> findAll() throws Exception {
+        return Collections.singletonList(redisService.getObjectFromJson("prefix", "key", User.class));
     }
 }

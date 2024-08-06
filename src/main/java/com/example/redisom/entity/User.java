@@ -1,6 +1,6 @@
 package com.example.redisom.entity;
 
-import com.redis.om.spring.annotations.Document;
+//import com.redis.om.spring.annotations.Document;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.redis.core.index.Indexed;
@@ -8,7 +8,7 @@ import org.springframework.data.redis.core.index.Indexed;
 @Data
 @RequiredArgsConstructor(staticName = "of")
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
-@Document(prefixes = "User")
+@NoArgsConstructor
 public class User {
     @Id
     private String id;

@@ -26,13 +26,15 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'com.redis.om:redis-om-spring:0.9.4'
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    implementation 'org.redisson:redisson-spring-boot-starter:3.34.1'
+    //implementation 'com.redis.om:redis-om-spring:0.9.4'
 
 
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
-    annotationProcessor "com.redis.om:redis-om-spring:0.9.4"
+    //annotationProcessor "com.redis.om:redis-om-spring:0.9.4"
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
